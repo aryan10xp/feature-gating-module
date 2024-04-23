@@ -33,7 +33,7 @@ func main() {
 	}
 
 	//the conditional expression required inorder to use the feature
-	conditionalExpression := "(age > 25) OR (orderAmount > 10000)"
+	conditionalExpression := "(age > 25) AND (orderAmount > 10000)"
 
 	featureName := "same day delivery"
 
@@ -54,7 +54,7 @@ func isAllowed(conditionalExpression string, featureName string, age int, orderA
 	if flagValue, ok := flags[featureName]; ok && flagValue {
 		switch conditionalExpression {
 		//checking if the conditions are met
-		case "(age > 25) OR (orderAmount > 10000)":
+		case "(age > 25) AND (orderAmount > 10000)":
 			return age > 25 && orderAmount > 10000
 		default:
 			return false
